@@ -80,10 +80,9 @@ smart-campus-network/
 - **Backend**: Node.js, Express.js
 - **Database**: SQLite (using sql.js)
 - **Authentication**: Session-based with bcrypt
+  
 
-## 🎓 VIVA DEMO GUIDE (How to Present)
-
-**Follow these exact steps to successfully demonstrate your project during the viva:**
+**Follow these exact steps to successfully demonstrate your project **
 
 ### 1. How to start the server
 Open your terminal/command prompt and run:
@@ -102,8 +101,8 @@ Wait to see the message: `Server running on http://localhost:3000`
    - **Password**: `admin123`
 4. Click "Sign In" to access the dashboard.
 
-### 3. How this connects to Packet Tracer (VIVA EXPLANATION)
-When the examiner asks how this relates to Computer Networks, explain:
+### 3. How this connects to Packet Tracer 
+
 > *"This dashboard simulates the physical hardware we designed in Cisco Packet Tracer. In PT, we created the topology with switches, routers, and PCs. This web portal acts like a network controller software (similar to Cisco DNA Center) where we can monitor those same VLANs, IP addresses, and manage the connected End Systems in real-time."*
 
 - **VLANs** map to your Department blocks in Packet Tracer.
