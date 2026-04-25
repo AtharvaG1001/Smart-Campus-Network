@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    <div id="result"></div>
+    
+    <script>
+    async function testAPI() {
+        try {
+            console.log('Testing API...');
+            const response = await fetch('/api/dashboard/stats');
+            const data = await response.json();
+            
+            console.log('API Response:', data);
+            document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            
+            if (data.success) {
+                console.log('Total Devices:', data.data.devices.total);
+                console.log('WiFi Students:', data.data.wifi.connected_students);
+                console.log('Servers Online:', data.data.servers.online);
+                
+                // Try to update elements like the dashboard would
+                document.body.innerHTML += `
+                    <h2>Stats</h2>
+                    <p>Total Devices: <span id="totalDevices">${data.data.devices.total}</span></p>
+                    <p>Active Devices: <span id="activeDevices">${data.data.devices.active} active</span></p>
+                    <p>VLANs: <span id="totalVlans">${data.data.vlans.active}</span></p>
+                    <p>Servers: <span id="totalServers">${data.data.servers.online}/${data.data.servers.total}</span></p>
+                    <p>WiFi Students: <span id="wifiClients">${data.data.wifi.connected_students}</span></p>
+                `;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('result').textContent = 'Error: ' + error.message;
+        }
+    }
+    
+    testAPI();
+    </script>
+</body>
+</html>

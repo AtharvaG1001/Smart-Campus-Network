@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Campus Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <div class="sidebar-logo-text">
+                        <h2>Smart Campus</h2>
+                        <p>Network Management</p>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="dashboard.html" class="nav-link active">
+                        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="topology.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5h-4z"/></svg>
+                        <span>Network Topology</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Management</div>
+                    <a href="servers.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M2 5c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V5zm18 2c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zM2 13c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2v-4zm18 2c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1z"/></svg>
+                        <span>Servers</span>
+                    </a>
+                    <a href="devices.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/></svg>
+                        <span>Devices</span>
+                    </a>
+                    <a href="wifi.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                        <span>Student Wi-Fi</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="user-menu">
+                        <div class="user-avatar" id="userAvatar">A</div>
+                        <div class="user-info">
+                            <span class="user-name" id="userName">Admin</span>
+                            <span class="user-role">Administrator</span>
+                        </div>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </header>
+            
+            <div class="page-content">
+                <!-- Packet Tracer Integration Banner -->
+                <div class="card mb-20" style="border-left: 4px solid #3b82f6; background: #eff6ff;">
+                    <div class="card-body">
+                        <h3 style="color: #1e3a8a; margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            Cisco Packet Tracer Smart Campus Network Simulation
+                        </h3>
+                        <p style="color: #1e40af; margin-bottom: 15px;">This dashboard is used to manage and visualize the enterprise network designed in Cisco Packet Tracer. The virtual infrastructure is mapped directly to actual simulation objects.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                            <div style="background: white; padding: 10px; border-radius: 6px; border: 1px solid #bfdbfe;">
+                                <strong style="color: #1e3a8a; display: block; margin-bottom: 5px;">VLANs</strong>
+                                <span style="color: #475569; font-size: 0.9rem;">Map to Campus Departments</span>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 6px; border: 1px solid #bfdbfe;">
+                                <strong style="color: #1e3a8a; display: block; margin-bottom: 5px;">Devices</strong>
+                                <span style="color: #475569; font-size: 0.9rem;">Map to End Systems / PCs</span>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 6px; border: 1px solid #bfdbfe;">
+                                <strong style="color: #1e3a8a; display: block; margin-bottom: 5px;">Servers</strong>
+                                <span style="color: #475569; font-size: 0.9rem;">Map to PT Network Services</span>
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 6px; border: 1px solid #bfdbfe;">
+                                <strong style="color: #1e3a8a; display: block; margin-bottom: 5px;">Wi-Fi</strong>
+                                <span style="color: #475569; font-size: 0.9rem;">Maps to VLAN 200 (WLC Config)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="totalDevices">0</div>
+                                <div class="stat-label">Total Devices</div>
+                            </div>
+                            <div class="stat-icon blue">
+                                <svg viewBox="0 0 24 24"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-change positive" id="activeDevices">0 active</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="totalVlans">0</div>
+                                <div class="stat-label">Active VLANs</div>
+                            </div>
+                            <div class="stat-icon green">
+                                <svg viewBox="0 0 24 24"><path d="M17 16l-4-4V8.82C14.16 8.4 15 7.3 15 6c0-1.66-1.34-3-3-3S9 4.34 9 6c0 1.3.84 2.4 2 2.82V12l-4 4H3v5h5v-3.05l4-4.2 4 4.2V21h5v-5h-4z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-change">Network segments</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="totalServers">0</div>
+                                <div class="stat-label">Servers Online</div>
+                            </div>
+                            <div class="stat-icon orange">
+                                <svg viewBox="0 0 24 24"><path d="M2 5c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V5zm18 2c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-change positive" id="serverStatus">All operational</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-value" id="wifiClients">0</div>
+                                <div class="stat-label">Wi-Fi Students</div>
+                            </div>
+                            <div class="stat-icon cyan">
+                                <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                            </div>
+                        </div>
+                        <div class="stat-change" id="wifiBandwidth">0 Mbps total</div>
+                    </div>
+                </div>
+                
+                <!-- Departments Section -->
+                <div class="card mb-20">
+                    <div class="card-header">
+                        <h2 class="card-title">Departments & VLAN Configuration</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="department-grid" id="departmentGrid">
+                            <!-- Departments will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Devices -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Network Activity</h2>
+                        <a href="devices.html" class="btn btn-outline btn-sm">View All Devices</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Device Name</th>
+                                        <th>Type</th>
+                                        <th>IP Address</th>
+                                        <th>Status</th>
+                                        <th>Last Seen</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentDevicesTable">
+                                    <!-- Recent devices will be loaded dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
