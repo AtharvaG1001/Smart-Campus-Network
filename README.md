@@ -225,8 +225,6 @@ This project is created for educational purposes as part of a Computer Networks 
 
 ## 👨‍💻 Author
 
-Engineering Student - Computer Networks Mini Project
+Atharva Gaikwad 
 
----
-
-**Note**: This is a simulation dashboard for educational purposes. It does not connect to actual network hardware.
+THANK YOU
